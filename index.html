@@ -9,69 +9,30 @@
 <style>
   :root {
     --paper: #f0ead6;
-    --paper-dark: #e8dfc4;
     --paper-aged: #d4c9a8;
     --ink: #1a1208;
     --ink-faded: #3d3020;
     --ink-light: #6b5d45;
     --ink-very-light: #9e8f78;
     --red-seal: #8b1a1a;
-    --red-accent: #c0392b;
-    --gold: #8b7355;
     --border: #c4b99a;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     background-color: var(--paper);
     color: var(--ink);
     font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
     min-height: 100vh;
-    position: relative;
   }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: 
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
-
   .page-wrapper {
-    position: relative;
-    z-index: 1;
     max-width: 720px;
     margin: 0 auto;
     padding: 0 2rem;
   }
-
-  /* Header */
   header {
     border-bottom: 1px solid var(--border);
     padding: 3rem 0 2rem;
-    position: relative;
   }
-
-  header::after {
-    content: '';
-    display: block;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--ink-faded) 20%, var(--ink-faded) 80%, transparent);
-    margin-top: 6px;
-    opacity: 0.3;
-  }
-
-  .header-inner {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-
   .site-title {
     font-family: 'Zen Old Mincho', serif;
     font-size: 2.8rem;
@@ -80,7 +41,6 @@
     line-height: 1;
     color: var(--ink);
   }
-
   .site-subtitle {
     font-size: 0.75rem;
     color: var(--ink-light);
@@ -88,36 +48,12 @@
     margin-top: 0.5rem;
     font-weight: 300;
   }
-
-  .seal {
-    width: 56px;
-    height: 56px;
-    border: 2px solid var(--red-seal);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    position: relative;
-    transform: rotate(2deg);
-  }
-
-  .seal span {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 0.75rem;
-    color: var(--red-seal);
-    writing-mode: vertical-rl;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-  }
-
   nav {
     padding: 1rem 0;
     display: flex;
     gap: 2rem;
     border-bottom: 1px solid var(--border);
   }
-
   nav a {
     font-size: 0.8rem;
     color: var(--ink-light);
@@ -126,9 +62,7 @@
     transition: color 0.2s;
     position: relative;
   }
-
   nav a:hover { color: var(--ink); }
-
   nav a::after {
     content: '◆';
     position: absolute;
@@ -138,70 +72,49 @@
     top: 50%;
     transform: translateY(-50%);
   }
-
   nav a:last-child::after { display: none; }
-
-  /* Main content */
   main { padding: 3rem 0 4rem; }
-
   .section-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
   }
-
   .section-label {
     font-size: 0.7rem;
     letter-spacing: 0.3em;
     color: var(--ink-very-light);
-    text-transform: none;
   }
-
   .section-rule {
     flex: 1;
     height: 1px;
     background: var(--border);
   }
-
-  /* Article list */
-  .article-list {
-    list-style: none;
-  }
-
+  .article-list { list-style: none; }
   .article-item {
     border-bottom: 1px solid var(--paper-aged);
     padding: 1.75rem 0;
     position: relative;
-    cursor: pointer;
-    transition: background 0.2s;
   }
-
-  .article-item:first-child {
-    border-top: 1px solid var(--paper-aged);
+  .article-item:first-child { border-top: 1px solid var(--paper-aged); }
+  .article-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: opacity 0.2s;
   }
-
-  .article-item:hover {
-    background: rgba(0,0,0,0.02);
-    margin: 0 -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
+  .article-item a:hover { opacity: 0.7; }
   .article-meta {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.6rem;
   }
-
   .article-date {
     font-size: 0.7rem;
     color: var(--ink-very-light);
     letter-spacing: 0.1em;
-    font-family: 'Noto Serif JP', serif;
   }
-
   .article-tag {
     font-size: 0.65rem;
     color: var(--red-seal);
@@ -210,7 +123,6 @@
     letter-spacing: 0.1em;
     opacity: 0.7;
   }
-
   .article-title {
     font-family: 'Zen Old Mincho', serif;
     font-size: 1.15rem;
@@ -220,7 +132,6 @@
     color: var(--ink);
     margin-bottom: 0.5rem;
   }
-
   .article-excerpt {
     font-size: 0.82rem;
     color: var(--ink-light);
@@ -231,7 +142,6 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-
   .article-arrow {
     position: absolute;
     right: 0;
@@ -240,8 +150,6 @@
     color: var(--border);
     font-size: 0.8rem;
   }
-
-  /* Decorative elements */
   .ornament {
     text-align: center;
     color: var(--border);
@@ -249,225 +157,62 @@
     letter-spacing: 0.5em;
     margin: 3rem 0 2rem;
   }
-
-  /* Footer */
   footer {
     border-top: 1px solid var(--border);
     padding: 2rem 0;
     text-align: center;
   }
-
-  footer::before {
-    content: '';
-    display: block;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--ink-faded) 20%, var(--ink-faded) 80%, transparent);
-    margin-bottom: 6px;
-    opacity: 0.15;
-  }
-
   .footer-text {
     font-size: 0.7rem;
     color: var(--ink-very-light);
     letter-spacing: 0.2em;
-  }
-
-  /* About page (hidden by default) */
-  .page { display: none; }
-  .page.active { display: block; }
-  #page-home { display: block; }
-
-  .about-content {
-    padding: 2rem 0;
-  }
-
-  .about-content p {
-    font-size: 0.9rem;
-    line-height: 2.2;
-    color: var(--ink-faded);
-    letter-spacing: 0.06em;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Article page */
-  .article-full {
-    padding: 2rem 0;
-  }
-
-  .article-full-title {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-  }
-
-  .article-full-meta {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--paper-aged);
-  }
-
-  .article-full-body {
-    font-size: 0.9rem;
-    line-height: 2.4;
-    color: var(--ink-faded);
-    letter-spacing: 0.06em;
-  }
-
-  .article-full-body p { margin-bottom: 1.8rem; }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    color: var(--ink-light);
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    margin-bottom: 2rem;
-    cursor: pointer;
-  }
-
-  .back-link:hover { color: var(--ink); }
-
-  @media (max-width: 600px) {
-    .site-title { font-size: 2rem; }
-    .header-inner { flex-direction: row; }
   }
 </style>
 </head>
 <body>
 <div class="page-wrapper">
   <header>
-    <div class="header-inner">
-      <div>
-        <h1 class="site-title">常世の繭</h1>
-        <p class="site-subtitle">とこよのまゆ　— 創作文庫</p>
-      </div>
-      <div class="seal"><span>常世</span></div>
-    </div>
+    <h1 class="site-title">常世の繭</h1>
+    <p class="site-subtitle">とこよのまゆ　— 創作文庫</p>
   </header>
-
   <nav>
-    <a href="#" onclick="showPage('home')">目録</a>
-    <a href="#" onclick="showPage('about')">書庫について</a>
+    <a href="/eternalnessstudy/">目録</a>
+    <a href="/eternalnessstudy/about.html">書庫について</a>
   </nav>
-
-  <!-- Home page -->
-  <div id="page-home" class="page active">
-    <main>
-      <div class="section-header">
-        <span class="section-label">收藏目录</span>
-        <div class="section-rule"></div>
-      </div>
-
-      <ul class="article-list" id="article-list">
-        <!-- Articles will be rendered here -->
-      </ul>
-
-      <div class="ornament">— ◆ —</div>
-    </main>
-  </div>
-
-  <!-- About page -->
-  <div id="page-about" class="page">
-    <main>
-      <div class="about-content">
-        <div class="section-header">
-          <span class="section-label">書庫について</span>
-          <div class="section-rule"></div>
-        </div>
-        <p>
-          常世の繭は、個人創作の小説を収める私的な文庫です。
-        </p>
-        <p>
-          推理の表層と、その下に流れる命運の物語。<br>
-          時間、常世、人間と霊——<br>
-          ここに収められるのは、そのような境界の物語です。
-        </p>
-      </div>
-    </main>
-  </div>
-
-  <!-- Article page -->
-  <div id="page-article" class="page">
-    <main>
-      <a class="back-link" onclick="showPage('home')">← 目録へ戻る</a>
-      <div class="article-full" id="article-content"></div>
-    </main>
-  </div>
-
+  <main>
+    <div class="section-header">
+      <span class="section-label">収蔵目録</span>
+      <div class="section-rule"></div>
+    </div>
+    <ul class="article-list">
+      <li class="article-item">
+        <a href="/eternalnessstudy/posts/black-pine.html">
+          <div class="article-meta">
+            <span class="article-date">2026年三月</span>
+            <span class="article-tag">常世</span>
+          </div>
+          <h2 class="article-title">黒松の声</h2>
+          <p class="article-excerpt">茶寮の店員は、その低く礼儀正しい声が、人の喉からではなく、修剪された庭園の黒松から伝わってきたように感じた——</p>
+          <span class="article-arrow">→</span>
+        </a>
+      </li>
+      <li class="article-item">
+        <a href="/eternalnessstudy/posts/kobe-cake.html">
+          <div class="article-meta">
+            <span class="article-date">2026年二月</span>
+            <span class="article-tag">推理</span>
+          </div>
+          <h2 class="article-title">神戸から来た菓子袋</h2>
+          <p class="article-excerpt">「あなた、最近神戸へ行かれましたか？」茶寮の片隅で、年若い刑事はそう切り出した。袋の意匠が、ある嘘を照らし出す——</p>
+          <span class="article-arrow">→</span>
+        </a>
+      </li>
+    </ul>
+    <div class="ornament">— ◆ —</div>
+  </main>
   <footer>
     <p class="footer-text">常世の繭　— 私的文庫</p>
   </footer>
 </div>
-
-<script>
-const articles = [
-  {
-    id: 1,
-    date: "2026年三月",
-    tag: "推理",
-    title: "神戸から来た菓子袋",
-    excerpt: "「あなた、最近神戸へ行かれましたか？」茶寮の片隅で、年若い刑事はそう切り出した。袋の意匠が、ある嘘を照らし出す——",
-    body: `<p>「あなた、最近神戸へ行かれましたか？」</p>
-<p>「……なぜ急にそのようなことを？」</p>
-<p>「この袋——神戸の有名な菓子屋のものです。東京には支店がないはずですが」</p>
-<p>「ああ……以前行ったときに。袋の意匠が気に入って、使い回しているのです」</p>
-<p>「左様ですか。私も一度神戸へ参りましたが、あの店の伯爵茶ゼリーチーズケーキは格別でした。この季節なら桃が入っているはず——お召し上がりになりましたか？」</p>`
-  },
-  {
-    id: 2,
-    date: "2026年二月",
-    tag: "常世",
-    title: "黒松の声",
-    excerpt: "茶寮の店員は、その低く礼儀正しい声が、人の喉からではなく、修剪された庭園の黒松から伝わってきたように感じた——",
-    body: `<p>茶寮の店員は戸惑いながら頷いたが、その低く礼儀正しい声音が人の喉からではなく、本来は自然の造物であるはずが、修剪されすぎて精緻な工芸品のようになった庭園の黒松から伝わってきたように、妙に感じた。おそらく樹齢数百年の黒松——伝説の「船越の松」をも超えているかもしれない。しかしその「黒松」の目は、浅く眠っているいつでも消えてしまいそうな連れから離れることなく、その人が触れることのできない場所へと滑り落ちないよう、枝で固く縛り付けるように見守っていた。</p>
-<p>店員は突然恐怖を感じ、軽く一礼するだけで、それ以上何も言わなかった。</p>`
-  }
-];
-
-function showPage(page, articleId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
-  
-  if (page === 'article' && articleId) {
-    const article = articles.find(a => a.id === articleId);
-    if (article) {
-      document.getElementById('article-content').innerHTML = `
-        <div class="article-full-meta">
-          <span class="article-date">${article.date}</span>
-          <span class="article-tag">${article.tag}</span>
-        </div>
-        <h1 class="article-full-title">${article.title}</h1>
-        <div class="article-full-body">${article.body}</div>
-      `;
-    }
-  }
-  return false;
-}
-
-function renderArticles() {
-  const list = document.getElementById('article-list');
-  list.innerHTML = articles.map(article => `
-    <li class="article-item" onclick="showPage('article', ${article.id})">
-      <div class="article-meta">
-        <span class="article-date">${article.date}</span>
-        <span class="article-tag">${article.tag}</span>
-      </div>
-      <h2 class="article-title">${article.title}</h2>
-      <p class="article-excerpt">${article.excerpt}</p>
-      <span class="article-arrow">→</span>
-    </li>
-  `).join('');
-}
-
-renderArticles();
-</script>
 </body>
 </html>
