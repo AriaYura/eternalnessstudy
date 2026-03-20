@@ -33,6 +33,17 @@
     border-bottom: 1px solid var(--border);
     padding: 3rem 0 2rem;
   }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-kamon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.85;
+  }
   .site-title {
     font-family: 'Zen Old Mincho', serif;
     font-size: 2.8rem;
@@ -172,8 +183,13 @@
 <body>
 <div class="page-wrapper">
   <header>
-    <h1 class="site-title">常世の繭</h1>
-    <p class="site-subtitle">とこよのまゆ　— 創作文庫</p>
+    <div class="header-inner">
+        <div>
+            <h1 class="site-title">常世の繭</h1>
+            <p class="site-subtitle">とこよのまゆ　— 創作文庫</p>
+        </div>
+        <img src="kamon.svg" alt="常世の繭" class="site-kamon">
+    </div>
   </header>
   <nav>
     <a href="/eternalnessstudy/">目録</a>
@@ -197,7 +213,7 @@
         </a>
       </li>
       <li class="article-item">
-        <a href="/eternalnessstudy/posts/kinsensuisho.html">
+        <a href="/eternalnessstudy/posts/.html">
           <div class="article-meta">
             <span class="article-date">2026年三月</span>
             <span class="article-tag">推理</span>
