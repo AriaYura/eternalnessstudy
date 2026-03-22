@@ -20,50 +20,44 @@
       background: var(--bg);
       color: var(--ink);
       font-family: 'Shippori Mincho', serif;
-      min-height: 100dvh;
-      overscroll-behavior-y: contain;
     }
 
-    /* ── Running head ── */
-    .running-head {
-      position: sticky;
-      top: 0;
+    /* ── Kamon（fixed top-left） ── */
+    .kamon-fixed {
+      position: fixed;
+      top: 1.2rem;
+      left: 1.4rem;
       z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 2.5rem;
-      height: 36px;
-      display: grid;
-      grid-template-columns: 36px 1fr 36px;
-      align-items: center;
-    }
-
-    .running-head__kamon {
-      width: 18px;
-      height: 18px;
-      opacity: 0.65;
+      width: 64px;
+      height: 64px;
+      opacity: 0.75;
       transition: opacity 0.2s;
       display: block;
     }
-    .running-head__kamon:hover { opacity: 1; }
+    .kamon-fixed:hover { opacity: 1; }
 
-    .running-head__back {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 0.7rem;
+    /* ── Running head ── */
+    .running-head {
+      padding: 2rem 2rem 0;
+      text-align: center;
+    }
+
+    .running-head__title {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 0.75rem;
       letter-spacing: 0.15em;
       color: var(--ink-light);
       text-decoration: none;
       opacity: 0.7;
       transition: opacity 0.2s;
-      text-align: center;
     }
-    .running-head__back:hover { opacity: 1; }
+    .running-head__title:hover { opacity: 1; }
 
     /* ── Article ── */
     .article {
       max-width: 680px;
       margin: 0 auto;
-      padding: 4.5rem 2rem 10rem;
+      padding: 3rem 2rem 4rem;
     }
 
     .article__title {
@@ -97,16 +91,33 @@
       letter-spacing: 0.3em;
       font-size: 0.85rem;
     }
+
+    /* ── Footer ── */
+    .post-footer {
+      text-align: center;
+      padding: 2rem 2rem 4rem;
+    }
+
+    .post-footer__back {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-light);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .post-footer__back:hover { opacity: 1; }
   </style>
 </head>
 <body>
 
+  <a class="kamon-fixed" href="{{ site.baseurl }}/">
+    <img src="{{ site.baseurl }}/kamon.svg" alt="常世の繭" width="64" height="64">
+  </a>
+
   <header class="running-head">
-    <a href="{{ site.baseurl }}/">
-      <img class="running-head__kamon" src="{{ site.baseurl }}/kamon.svg" alt="常世の繭">
-    </a>
-    <a class="running-head__back" href="{{ site.baseurl }}/">目録へ戻る</a>
-    <span></span>
+    <a class="running-head__title" href="{{ site.baseurl }}/">常世の繭</a>
   </header>
 
   <article class="article">
@@ -117,6 +128,10 @@
     </div>
     <div class="article__colophon">— ◆ —</div>
   </article>
+
+  <footer class="post-footer">
+    <a class="post-footer__back" href="{{ site.baseurl }}/">目録へ戻る</a>
+  </footer>
 
 </body>
 </html>
