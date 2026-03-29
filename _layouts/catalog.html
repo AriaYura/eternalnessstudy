@@ -36,6 +36,25 @@
     }
     .kamon-fixed:hover { opacity: 1; }
 
+    /* ── Running head（matches post layout） ── */
+    .running-head {
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2.5rem;
+      height: 36px;
+      display: grid;
+      grid-template-columns: 36px 1fr 36px;
+      align-items: center;
+    }
+
+    .running-head__title {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-light);
+      opacity: 0.7;
+      text-align: center;
+    }
+
     /* ── Page header ── */
     .page-header {
       max-width: 680px;
@@ -43,27 +62,24 @@
       padding: 3rem 2rem 0;
     }
 
-    .page-header__site {
+    .page-header__title {
       font-family: 'Zen Old Mincho', serif;
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 700;
       letter-spacing: -0.05em;
       color: var(--ink);
-      text-decoration: none;
       display: block;
-      margin-bottom: 0.4rem;
-      transition: opacity 0.2s;
+      margin-bottom: 0.5rem;
     }
-    .page-header__site:hover { opacity: 0.75; }
 
     .page-header__sub {
       font-family: 'Shippori Mincho', serif;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       letter-spacing: 0.2em;
       color: var(--ink-light);
       opacity: 0.6;
       display: block;
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
     }
 
     .page-header__rule {
@@ -75,29 +91,29 @@
     .catalog {
       max-width: 680px;
       margin: 0 auto;
-      padding: 3rem 2rem 6rem;
+      padding: 3.5rem 2rem 6rem;
     }
 
     /* ── Era (Level 1) ── */
     .era {
-      margin-bottom: 2.4rem;
+      margin-bottom: 2.8rem;
     }
 
     .era-title {
       font-family: 'Zen Old Mincho', serif;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       letter-spacing: 0.08em;
       color: var(--ink);
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.8rem;
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.6rem;
     }
 
     .era-title__sym {
       color: var(--stamp);
       opacity: 0.75;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       line-height: 1;
       position: relative;
       top: 0.08em;
@@ -106,33 +122,33 @@
 
     /* ── Collection (Level 2) ── */
     .collection-list {
-      padding-left: 1.1rem;
+      padding-left: 1.2rem;
       border-left: 1px solid var(--rule);
-      margin-left: 8px;
+      margin-left: 9px;
     }
 
     .collection-item {
       position: relative;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.2rem;
     }
 
     .collection-item::before {
       content: '';
       position: absolute;
-      left: -1.1rem;
+      left: -1.2rem;
       top: 0.65em;
-      width: 0.7rem;
+      width: 0.75rem;
       height: 1px;
       background: var(--rule);
     }
 
     .collection-link {
       font-family: 'Shippori Mincho', serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       letter-spacing: 0.05em;
       color: #3a2e1e;
       text-decoration: none;
-      padding: 0.3rem 0.5rem;
+      padding: 0.35rem 0.55rem;
       display: inline-block;
       transition: color 0.15s;
     }
@@ -140,11 +156,11 @@
 
     /* ── Chapter (Level 3) ── */
     .chapter-list {
-      padding-left: 1.1rem;
+      padding-left: 1.2rem;
       border-left: 1px solid rgba(26,18,8,0.12);
-      margin-left: calc(0.5rem + 8px);
+      margin-left: calc(0.55rem + 9px);
       margin-top: 0.1rem;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
     }
 
     .chapter-item {
@@ -155,20 +171,20 @@
     .chapter-item::before {
       content: '';
       position: absolute;
-      left: -1.1rem;
+      left: -1.2rem;
       top: 0.6em;
-      width: 0.65rem;
+      width: 0.7rem;
       height: 1px;
       background: rgba(26,18,8,0.12);
     }
 
     .chapter-link {
       font-family: 'Shippori Mincho', serif;
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       letter-spacing: 0.06em;
       color: var(--ink-light);
       text-decoration: none;
-      padding: 0.18rem 0.5rem;
+      padding: 0.22rem 0.55rem;
       display: inline-block;
       transition: color 0.15s;
       opacity: 0.8;
@@ -176,10 +192,10 @@
     .chapter-link:hover { color: var(--stamp); opacity: 1; }
 
     .chapter-ellipsis {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--ink-light);
       opacity: 0.4;
-      padding: 0.15rem 0.5rem;
+      padding: 0.15rem 0.55rem;
       letter-spacing: 0.1em;
       display: inline-block;
     }
@@ -208,8 +224,14 @@
     <img src="{{ site.baseurl }}/kamon.svg" alt="常世の繭" width="36" height="36">
   </a>
 
+  <div class="running-head">
+    <span></span>
+    <span class="running-head__title">常世の繭</span>
+    <span></span>
+  </div>
+
   <header class="page-header">
-    <a class="page-header__site" href="{{ site.baseurl }}/">収蔵目録</a>
+    <span class="page-header__title">収蔵目録</span>
     <span class="page-header__sub">繭の記録室</span>
     <hr class="page-header__rule">
   </header>
