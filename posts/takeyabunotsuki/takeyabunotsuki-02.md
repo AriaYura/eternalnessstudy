@@ -3,7 +3,7 @@ layout: chapter
 title: 踏み込む
 collection_title: 竹藪の月
 collection_url: /posts/takeyabunotsuki/
-prev: /posts/takeyabunotsuki/takeyabunotsuki-02/
+prev: /posts/takeyabunotsuki/takeyabunotsuki-01/
 next: 
 permalink: /posts/takeyabunotsuki/takeyabunotsuki-02/
 ---
