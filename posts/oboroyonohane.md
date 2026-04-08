@@ -7,6 +7,7 @@ permalink: /posts/oboroyonohane/
 朧夜ノ羽
 おぼろよのはね
 
+<br>
 
 01 蝉吟
 せんぎん
@@ -285,7 +286,7 @@ permalink: /posts/oboroyonohane/
 
 「那是當然。」
 
-
+<br>
 
 離開一課辦公室之後，飛鷹千壽才想起自己和不破利己約好一起吃晚飯。他匆忙朝OKURA位於地下的辦公室趕去，卻在電梯打開時恰好遇上一同下班的吉岡雷和鷲澤泰造。兩人告訴他其他人也都已經退勤，辦公室裡已經沒人了。
 
@@ -309,6 +310,7 @@ permalink: /posts/oboroyonohane/
 
 「我都等得不耐煩了。」
 
+<br>
 
 02 玉繭
 たままゆ
