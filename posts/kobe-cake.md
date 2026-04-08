@@ -4,6 +4,8 @@ title: 神戸から来た菓子袋
 permalink: /posts/kobe-cake/
 ---
 
+<div class="scene-break scene-break__symbol">*<div>
+
 飛鷹千壽想起他們重逢的月夜，自己也被年輕人這如同弦上之箭冷峻而清醒的視線直盯著。那時不破利己的身上還沒有槍傷的痕跡，和他才在夢中送別的柔軟身體一樣。
 
 「做夢了嗎，千壽先生？」
